@@ -503,25 +503,25 @@ export default function EditorPage() {
     : ""
 
   return (
-    <div className="min-h-screen flex flex-col h-screen overflow-hidden" style={{ background: '#0f1117' }}>
+    <div className="min-h-screen flex flex-col h-screen overflow-hidden" style={{ background: '#f0f2f7' }}>
 
       {/* ── Top Bar (Version History or Live) ────────────────────────────────── */}
       {versionHistoryMode ? (
         <header className="flex items-center justify-between px-6 py-3.5 border-b shrink-0"
-          style={{ background: '#161b27', borderColor: 'rgba(255,255,255,0.07)' }}>
+          style={{ background: '#ffffff', borderColor: 'rgba(0,0,0,0.08)' }}>
           <div className="flex items-center gap-3">
             <button
               onClick={() => { setVersionHistoryMode(false); setSelectedVersion(null); }}
-              className="text-xs px-3 py-1.5 rounded-lg transition-colors duration-150 cursor-pointer hover:bg-white/5"
-              style={{ color: '#8b93a8', background: 'rgba(255,255,255,0.05)' }}
+              className="text-xs px-3 py-1.5 rounded-lg transition-colors duration-150 cursor-pointer hover:bg-gray-100"
+              style={{ color: '#6b7280', background: 'rgba(0,0,0,0.04)' }}
             >
               ← Close Preview
             </button>
-            <span className="text-sm font-semibold text-slate-200" style={{ fontFamily: 'Outfit, sans-serif' }}>
+            <span className="text-sm font-semibold text-gray-800" style={{ fontFamily: 'Outfit, sans-serif' }}>
               Version History
             </span>
             {selectedVersion && (
-              <span className="text-xs px-2.5 py-0.5 rounded-full" style={{ background: 'rgba(99,102,241,0.15)', color: '#a5b4fc' }}>
+              <span className="text-xs px-2.5 py-0.5 rounded-full" style={{ background: 'rgba(79,110,247,0.10)', color: '#4f6ef7' }}>
                 Previewing: {selectedVersion.name} ({selectedDateStr})
               </span>
             )}
@@ -544,22 +544,22 @@ export default function EditorPage() {
         </header>
       ) : (
         <header className="flex items-center justify-between px-6 py-3 border-b shrink-0"
-          style={{ background: '#161b27', borderColor: 'rgba(255,255,255,0.07)' }}>
+          style={{ background: '#ffffff', borderColor: 'rgba(0,0,0,0.08)' }}>
 
           {/* Left */}
           <div className="flex items-center gap-4">
             <button
               onClick={() => navigate('/')}
-              className="text-sm px-3 py-1.5 rounded-lg transition-colors duration-150 cursor-pointer"
-              style={{ color: '#8b93a8', background: 'rgba(255,255,255,0.05)' }}>
+              className="text-sm px-3 py-1.5 rounded-lg transition-colors duration-150 cursor-pointer hover:bg-gray-100"
+              style={{ color: '#6b7280', background: 'rgba(0,0,0,0.04)' }}>
               ← Home
             </button>
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg flex items-center justify-center text-sm"
-                style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6)' }}>
+              <div className="w-7 h-7 rounded-lg flex items-center justify-center text-sm text-white"
+                style={{ background: 'linear-gradient(135deg, #4f6ef7, #7c3aed)' }}>
                 ✦
               </div>
-              <span className="font-semibold text-sm" style={{ fontFamily: 'Outfit, sans-serif' }}>
+              <span className="font-semibold text-sm text-gray-800" style={{ fontFamily: 'Outfit, sans-serif' }}>
                 {title}
               </span>
             </div>
@@ -588,12 +588,12 @@ export default function EditorPage() {
                   className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold border-2 select-none relative group"
                   style={{
                     backgroundColor: col.color,
-                    borderColor: '#161b27',
+                    borderColor: '#ffffff',
                     color: '#ffffff',
                   }}
                 >
                   {getInitials(col.name)}
-                  <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-slate-900 border border-slate-700/50 text-[10px] text-slate-100 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
+                  <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-white border border-gray-200 text-[10px] text-gray-700 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
                     {col.name}
                   </div>
                 </div>
@@ -604,12 +604,12 @@ export default function EditorPage() {
                 className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold border-2 select-none relative group"
                 style={{
                   backgroundColor: localUser.color,
-                  borderColor: '#161b27',
+                  borderColor: '#ffffff',
                   color: '#ffffff',
                 }}
               >
                 {getInitials(localUser.name)}
-                <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-slate-900 border border-slate-700/50 text-[10px] text-slate-100 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
+                <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-white border border-gray-200 text-[10px] text-gray-700 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
                   {localUser.name} (You)
                 </div>
               </div>
@@ -617,13 +617,13 @@ export default function EditorPage() {
 
             {/* Nickname input */}
             <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-xs"
-              style={{ background: '#1e2535', borderColor: 'rgba(255,255,255,0.07)' }}>
+              style={{ background: '#f3f4f6', borderColor: 'rgba(0,0,0,0.08)' }}>
               <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: localUser.color }} />
               <input
                 type="text"
                 value={localUser.name}
                 onChange={(e) => handleUpdateName(e.target.value)}
-                className="bg-transparent border-none outline-none p-0 text-[11px] font-medium text-slate-200 focus:ring-0 focus:outline-none w-24"
+                className="bg-transparent border-none outline-none p-0 text-[11px] font-medium text-gray-700 focus:ring-0 focus:outline-none w-24"
                 placeholder="Your name..."
               />
             </div>
@@ -631,11 +631,11 @@ export default function EditorPage() {
             {/* Version History Button */}
             <button
               onClick={() => { setVersionHistoryMode(true); fetchVersions(); }}
-              className="text-xs px-3 py-1.5 rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 hover:bg-white/10"
+              className="text-xs px-3 py-1.5 rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 hover:bg-gray-100"
               style={{
-                color: '#8b93a8',
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid rgba(255,255,255,0.07)',
+                color: '#6b7280',
+                background: 'rgba(0,0,0,0.04)',
+                border: '1px solid rgba(0,0,0,0.08)',
               }}
             >
               🕒 History
@@ -643,13 +643,13 @@ export default function EditorPage() {
 
             {/* CRDT badge */}
             <div className="text-xs px-2 py-1 rounded-lg hidden lg:block"
-              style={{ background: 'rgba(52,211,153,0.1)', color: '#6ee7b7', border: '1px solid rgba(52,211,153,0.2)' }}>
+              style={{ background: 'rgba(16,185,129,0.08)', color: '#059669', border: '1px solid rgba(16,185,129,0.2)' }}>
               ⚡ Yjs CRDT
             </div>
 
             {/* Doc ID */}
             <span className="text-xs font-mono px-2 py-1 rounded hidden md:block"
-              style={{ background: '#1e2535', color: '#6b7280' }}>
+              style={{ background: '#f3f4f6', color: '#9ca3af' }}>
               {docId?.slice(0, 8)}…
             </span>
 
@@ -658,9 +658,9 @@ export default function EditorPage() {
               onClick={copyLink}
               className="text-sm px-4 py-1.5 rounded-lg font-medium transition-all duration-200 cursor-pointer"
               style={{
-                background: copied ? 'rgba(52,211,153,0.2)' : 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-                color: copied ? '#34d399' : 'white',
-                boxShadow: copied ? 'none' : '0 0 16px rgba(99,102,241,0.3)',
+                background: copied ? 'rgba(16,185,129,0.12)' : 'linear-gradient(135deg, #4f6ef7, #7c3aed)',
+                color: copied ? '#059669' : 'white',
+                boxShadow: copied ? 'none' : '0 4px 12px rgba(79,110,247,0.3)',
               }}>
               {copied ? '✓ Copied!' : 'Share Link'}
             </button>
@@ -673,6 +673,7 @@ export default function EditorPage() {
         {/* Live Editor (hidden when version history is active) */}
         <main 
           className={`flex-1 overflow-y-auto py-10 px-4 flex-col items-center ${versionHistoryMode ? 'hidden' : 'flex'}`}
+          style={{ background: '#f0f2f7' }}
         >
           <div className="w-full max-w-3xl">
             <EditorComponent onReady={handleEditorReady} />
@@ -681,12 +682,12 @@ export default function EditorPage() {
 
         {/* Version History Preview Editor */}
         {versionHistoryMode && (
-          <main className="flex-1 overflow-y-auto py-10 px-4 flex flex-col items-center">
+          <main className="flex-1 overflow-y-auto py-10 px-4 flex flex-col items-center" style={{ background: '#f0f2f7' }}>
             <div className="w-full max-w-3xl">
               {selectedVersion ? (
                 <PreviewEditor content={selectedVersion.content!} />
               ) : (
-                <div className="flex flex-col items-center justify-center py-20 text-slate-400 gap-2 h-full">
+                <div className="flex flex-col items-center justify-center py-20 text-gray-400 gap-2 h-full">
                   <div className="text-4xl animate-bounce">🕒</div>
                   <div className="text-sm font-medium">Select a revision on the right to preview.</div>
                 </div>
@@ -697,17 +698,17 @@ export default function EditorPage() {
 
         {/* Version History Sidebar */}
         {versionHistoryMode && (
-          <aside className="w-80 border-l flex flex-col shrink-0" style={{ background: '#161b27', borderColor: 'rgba(255,255,255,0.07)' }}>
-            <div className="p-4 border-b flex flex-col gap-3" style={{ borderColor: 'rgba(255,255,255,0.07)' }}>
-              <h3 className="font-semibold text-sm text-slate-200" style={{ fontFamily: 'Outfit, sans-serif' }}>Revisions</h3>
+          <aside className="w-80 border-l flex flex-col shrink-0" style={{ background: '#ffffff', borderColor: 'rgba(0,0,0,0.08)' }}>
+            <div className="p-4 border-b flex flex-col gap-3" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
+              <h3 className="font-semibold text-sm text-gray-800" style={{ fontFamily: 'Outfit, sans-serif' }}>Revisions</h3>
               
               {!showNameDialog ? (
                 <button
                   onClick={() => setShowNameDialog(true)}
                   className="w-full py-2 text-xs font-semibold text-white rounded-lg transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5"
                   style={{
-                    background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-                    boxShadow: '0 0 12px rgba(99,102,241,0.3)',
+                    background: 'linear-gradient(135deg, #4f6ef7, #7c3aed)',
+                    boxShadow: '0 4px 12px rgba(79,110,247,0.25)',
                   }}
                 >
                   <span>+ Save Current Version</span>
@@ -720,15 +721,15 @@ export default function EditorPage() {
                     value={newVersionName}
                     onChange={(e) => setNewVersionName(e.target.value)}
                     className="w-full px-3 py-2 rounded-lg text-xs outline-none"
-                    style={{ background: '#0f1117', border: '1px solid rgba(255,255,255,0.1)', color: '#f0f2f8' }}
+                    style={{ background: '#f3f4f6', border: '1px solid rgba(0,0,0,0.10)', color: '#111827' }}
                     autoFocus
                   />
                   <div className="flex gap-2 justify-end">
                     <button
                       type="button"
                       onClick={() => { setShowNameDialog(false); setNewVersionName(""); }}
-                      className="px-2.5 py-1.5 text-[10px] rounded hover:bg-slate-800 transition-colors"
-                      style={{ color: '#8b93a8' }}
+                      className="px-2.5 py-1.5 text-[10px] rounded hover:bg-gray-100 transition-colors"
+                      style={{ color: '#6b7280' }}
                     >
                       Cancel
                     </button>
@@ -747,7 +748,7 @@ export default function EditorPage() {
             {/* List of saved revisions */}
             <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3">
               {versionsList.length === 0 ? (
-                <div className="text-center py-8 text-xs" style={{ color: '#6b7280' }}>
+                <div className="text-center py-8 text-xs" style={{ color: '#9ca3af' }}>
                   No saved revisions yet.
                 </div>
               ) : (
@@ -765,14 +766,14 @@ export default function EditorPage() {
                       onClick={() => handleSelectVersion(ver.id)}
                       className="w-full text-left p-3 rounded-xl transition-all duration-200 border cursor-pointer group"
                       style={{
-                        background: isSelected ? 'rgba(99,102,241,0.08)' : 'rgba(255,255,255,0.02)',
-                        borderColor: isSelected ? 'rgba(99,102,241,0.4)' : 'transparent',
+                        background: isSelected ? 'rgba(79,110,247,0.08)' : '#f9fafb',
+                        borderColor: isSelected ? 'rgba(79,110,247,0.35)' : 'rgba(0,0,0,0.06)',
                       }}
                     >
-                      <div className="font-semibold text-xs transition-colors" style={{ color: isSelected ? '#a5b4fc' : '#f0f2f8' }}>
+                      <div className="font-semibold text-xs transition-colors" style={{ color: isSelected ? '#4f6ef7' : '#111827' }}>
                         {ver.name}
                       </div>
-                      <div className="text-[10px] mt-1" style={{ color: '#8b93a8' }}>
+                      <div className="text-[10px] mt-1" style={{ color: '#9ca3af' }}>
                         {dateStr}
                       </div>
                     </button>
