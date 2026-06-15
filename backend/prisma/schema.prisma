@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Document {
+  id        String    @id @default(uuid())
+  title     String
+  content   String    @default("")
+  createdAt DateTime  @default(now())
+  versions  Version[]
+}
+
+model Version {
+  id         String   @id @default(uuid())
+  documentId String
+  document   Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  name       String
+  content    String   // Base64-encoded Yjs state update
+  createdAt  DateTime @default(now())
+}
