@@ -4,7 +4,7 @@ import * as Y from 'yjs'
 import Quill from 'quill'
 import type { Op } from 'quill/core'
 import { createPortal } from 'react-dom'
-import axios from 'axios'
+import api from '../lib/axios'
 import EditorComponent from '../components/Editor'
 import { getSocket, disconnectSocket } from '../sockets/socket'
 
@@ -202,7 +202,7 @@ export default function EditorPage() {
   const fetchVersions = useCallback(async () => {
     if (!docId) return
     try {
-      const { data } = await axios.get(`/api/documents/${docId}/versions`)
+      const { data } = await api.get(`/api/documents/${docId}/versions`)
       setVersionsList(data)
     } catch (e) {
       console.error("Failed to fetch versions list:", e)
@@ -213,7 +213,7 @@ export default function EditorPage() {
     if (!docId) return
     setSavingVersion(true)
     try {
-      await axios.post(`/api/documents/${docId}/versions`, { name })
+      await api.post(`/api/documents/${docId}/versions`, { name })
       await fetchVersions()
       setShowNameDialog(false)
       setNewVersionName("")
@@ -226,7 +226,7 @@ export default function EditorPage() {
 
   const handleSelectVersion = async (versionId: string) => {
     try {
-      const { data } = await axios.get(`/api/documents/${docId}/versions/${versionId}`)
+      const { data } = await api.get(`/api/documents/${docId}/versions/${versionId}`)
       setSelectedVersion(data)
     } catch (e) {
       console.error("Failed to load version content:", e)

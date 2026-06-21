@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import api from '../lib/axios'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -13,7 +13,7 @@ export default function Home() {
     setCreating(true)
     setError('')
     try {
-      const { data } = await axios.post('/api/documents')
+      const { data } = await api.post('/api/documents')
       navigate(`/editor/${data.id}`)
     } catch {
       setError('Failed to create document. Is the backend running?')
