@@ -30,7 +30,10 @@ const httpServer = http.createServer(app);
 // ── Socket.io ────────────────────────────────────────────────────────────────
 const io = new Server(httpServer, {
   cors: {
-    origin: process.env.FRONTEND_URL || "https://googledo.vercel.app/",
+    origin: [
+      "http://localhost:3000",
+      "https://googledo.vercel.app"
+    ],
     methods: ["GET", "POST"],
     credentials: true,
   },
